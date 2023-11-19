@@ -1,5 +1,9 @@
-function App() {
-  return <div>Countdown</div>;
-}
+import HeadingWithToolbar from './features/heading-with-toolbar/heading-with-toolbar';
 
-export default App;
+export default function App() {
+  return (
+    <div>
+      <HeadingWithToolbar />
+    </div>
+  );
+}
