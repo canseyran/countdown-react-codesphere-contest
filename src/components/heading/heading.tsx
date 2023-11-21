@@ -1,8 +1,10 @@
 import { createRef } from 'react';
 import { FontFamiliesEnum } from '../../types/font-families.enum';
+import { AlignmentEnum } from 'src/types/alignment.enum';
 
 type HeadingProps = {
   text?: string;
+  alignment?: AlignmentEnum;
   fontColor?: string;
   fontSize?: number;
   fontFamily?: FontFamiliesEnum;
@@ -14,7 +16,8 @@ type HeadingProps = {
 
 export default function Heading({
   text = 'Your custom title',
-  fontColor: color = '#000000',
+  alignment = AlignmentEnum.CENTER,
+  fontColor = '#000000',
   fontSize = 64,
   fontFamily = FontFamiliesEnum.KG_CHASING_CARS,
   allowEdit = false,
@@ -43,15 +46,17 @@ export default function Heading({
     <h1
       ref={textRef}
       contentEditable={allowEdit}
-      suppressContentEditableWarning
       onFocus={handleStartEditMode}
       onInput={handleTextChange}
       onBlur={handleStopEditMode}
       style={{
-        color: color,
+        color: fontColor,
         fontSize: fontSize + 'px',
         fontFamily: fontFamily,
+        textAlign: alignment,
       }}
+      className={`outline-none`}
+      suppressContentEditableWarning
     >
       {text}
     </h1>

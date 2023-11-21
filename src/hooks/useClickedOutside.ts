@@ -1,21 +1,25 @@
-import { RefObject, useEffect, useState } from 'react';
+import { RefObject, useCallback, useEffect, useState } from 'react';
 
-export default function useClickedOutside(ref: RefObject<Node>) {
+export default function useClickedOutside(ref: RefObject<HTMLElement>) {
   const [clickedOutside, setClickedOutside] = useState<boolean>(false);
 
-  useEffect(() => {
-    function handleDocumentClick(e: MouseEvent) {
+  const handleDocumentClick = useCallback(
+    (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) {
         setClickedOutside(true);
       } else {
         setClickedOutside(false);
       }
-    }
+    },
+    [ref],
+  );
+
+  useEffect(() => {
     document.addEventListener('mousedown', handleDocumentClick);
     return () => {
       document.removeEventListener('mousedown', handleDocumentClick);
     };
-  }, [ref]);
+  }, [ref, handleDocumentClick]);
 
   return {
     clickedOutside,

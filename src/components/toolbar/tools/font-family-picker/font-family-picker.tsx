@@ -14,12 +14,17 @@ export default function ToolFontFamilyPicker(props: ToolFontFamilyPickerProps) {
       return {
         value: v,
         label: v,
+        fontFamily: v,
       };
     });
   }, []);
 
   const selectedDropdownOption = useMemo(() => {
-    return { label: props.fontFamily, value: props.fontFamily };
+    return {
+      label: props.fontFamily,
+      value: props.fontFamily,
+      fontFamily: props.fontFamily,
+    };
   }, [props.fontFamily]);
 
   function handleSelectFontFamily(option: DropdownOption) {
@@ -27,11 +32,11 @@ export default function ToolFontFamilyPicker(props: ToolFontFamilyPickerProps) {
   }
 
   return (
-    <div>
-      <span className="text-white pr-2">Font Family</span>
+    <div className="flex flex-nowrap items-center">
+      <span className="text-white pr-2 whitespace-nowrap">Font Family</span>
       <div className="bg-darkGrey rounded  inline-block">
         <Dropdown
-          className="min-w-[12rem] text"
+          className="min-w-[12rem] h-8 text"
           selectedOption={selectedDropdownOption}
           options={dropdownOptions}
           onOptionSelected={handleSelectFontFamily}

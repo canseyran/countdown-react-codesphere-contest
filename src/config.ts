@@ -1,3 +1,4 @@
+import { AlignmentEnum } from './types/alignment.enum';
 import { FontFamiliesEnum } from './types/font-families.enum';
 
 export const config = {
@@ -10,7 +11,7 @@ export const config = {
       },
       font: {
         family: {
-          DEFAULT: FontFamiliesEnum.SATURDAY,
+          DEFAULT: FontFamiliesEnum.KG_CHASING_CARS,
           SEARCH_PARAM: 'font-family',
         },
         size: {
@@ -21,6 +22,10 @@ export const config = {
           DEFAULT: '#000000',
           SEARCH_PARAM: 'font-color',
         },
+      },
+      alignment: {
+        DEFAULT: AlignmentEnum.CENTER,
+        SEARCH_PARAM: 'heading-alignment',
       },
     },
   },
