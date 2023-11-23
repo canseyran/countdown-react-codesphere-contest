@@ -52,6 +52,49 @@ export default function useCustomCountdownSettings() {
     },
   );
 
+  const [descriptionText, setDescriptionText] = useState<string>(() => {
+    return (
+      searchParams.get(cfg.description.text.SEARCH_PARAM) ||
+      cfg.description.text.DEFAULTS[
+        Math.floor(Math.random() * cfg.description.text.DEFAULTS.length)
+      ]
+    ).slice(0, cfg.heading.text.MAX_LENGTH);
+  });
+
+  const [descriptionFontFamily, setDescriptionFontFamily] = useState(() => {
+    return (searchParams.get(cfg.description.font.family.SEARCH_PARAM) ||
+      cfg.description.font.family.DEFAULT) as FontFamiliesEnum;
+  });
+
+  const [descriptionFontSize, setDescriptionFontSize] = useState<number>(() => {
+    let fontSize;
+    try {
+      const fontSizeString = searchParams.get(
+        cfg.description.font.size.SEARCH_PARAM,
+      );
+      if (!fontSizeString) {
+        throw new Error('No font size in search params provided');
+      }
+      fontSize = Number(fontSizeString);
+    } catch (e) {
+      fontSize = cfg.description.font.size.DEFAULT;
+    }
+    return fontSize;
+  });
+
+  const [descriptionFontColor, setDescriptionFontColor] = useState<HexColor>(
+    () => {
+      return (searchParams.get(cfg.description.font.color.SEARCH_PARAM) ||
+        cfg.description.font.color.DEFAULT) as HexColor;
+    },
+  );
+
+  const [descriptionAlignment, setDescriptionAlignment] =
+    useState<AlignmentEnum>(() => {
+      return (searchParams.get(cfg.description.alignment.SEARCH_PARAM) ||
+        cfg.description.alignment.DEFAULT) as AlignmentEnum;
+    });
+
   // Helper function to set query params
   const setParam = useCallback(
     (param: string, value: string) => {
@@ -84,16 +127,52 @@ export default function useCustomCountdownSettings() {
     setParam(cfg.heading.alignment.SEARCH_PARAM, headingAlignment);
   }, [headingAlignment, setParam]);
 
+  useEffect(() => {
+    setParam(cfg.description.text.SEARCH_PARAM, descriptionText);
+  }, [descriptionText, setParam]);
+
+  useEffect(() => {
+    setParam(
+      cfg.description.font.family.SEARCH_PARAM,
+      descriptionFontFamily?.toString(),
+    );
+  }, [descriptionFontFamily, setParam]);
+
+  useEffect(() => {
+    setParam(
+      cfg.description.font.size.SEARCH_PARAM,
+      descriptionFontSize.toString(),
+    );
+  }, [descriptionFontSize, setParam]);
+
+  useEffect(() => {
+    setParam(cfg.description.font.color.SEARCH_PARAM, descriptionFontColor);
+  }, [descriptionFontColor, setParam]);
+
+  useEffect(() => {
+    setParam(cfg.description.alignment.SEARCH_PARAM, descriptionAlignment);
+  }, [descriptionAlignment, setParam]);
+
   return {
     headingText,
     headingFontFamily,
     headingFontSize,
     headingFontColor,
     headingAlignment,
+    descriptionText,
+    descriptionFontFamily,
+    descriptionFontSize,
+    descriptionFontColor,
+    descriptionAlignment,
     setHeadingText,
     setHeadingFontFamily,
     setHeadingFontSize,
     setHeadingFontColor,
     setHeadingAlignment,
+    setDescriptionText,
+    setDescriptionFontFamily,
+    setDescriptionFontSize,
+    setDescriptionFontColor,
+    setDescriptionAlignment,
   };
 }

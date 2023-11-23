@@ -1,32 +1,46 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 import CaretDownIcon from 'src/components/icons/caret-down';
 import { HexColor } from 'src/types/hex-color.type';
 
 type ToolColorPickerProps = {
-  color: HexColor;
-  onSetColor: (color: HexColor) => void;
+  value?: HexColor;
+  onChange?: (color: HexColor) => void;
 };
 export default function ToolColorPicker(props: ToolColorPickerProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
   function handleSelectColor(e: ChangeEvent<HTMLInputElement>) {
-    props.onSetColor(e.target.value as HexColor);
+    props.onChange?.(e.target.value as HexColor);
   }
 
   return (
-    <div className="flex items-center gap-2 relative">
-      <span className="text-white">Color</span>
-      <div className="relative flex items-center bg-darkGrey rounded h-8 pr-1 pl-3 w-100">
+    <div className="relative flex justify-between items-center bg-slate-900 border border-slate-600 rounded h-8 w-16">
+      <div className="pl-2">
         <div
           className="w-5 h-5 rounded border border-white"
-          style={{ background: props.color }}
+          style={{ background: props.value }}
         ></div>
-        <input
-          className="opacity-0 absolute top-0 left-0 h-full w-full"
-          type="color"
-          value={props.color}
-          onChange={handleSelectColor}
-        />
-        <CaretDownIcon className="w-8 h-8" fill="white"></CaretDownIcon>
       </div>
+      <div
+        className={`w-7 h-7 grid place-items-center rounded ${
+          isOpen
+            ? 'bg-slate-700 hover:bg-slate-800'
+            : 'bg-slate-800 hover:bg-slate-700'
+        }`}
+      >
+        <CaretDownIcon
+          className={`w-5 h-5 ${isOpen && 'rotate-180'}`}
+          fill="white"
+        />
+      </div>
+      <input
+        className="opacity-0 absolute top-0 left-0 h-full w-full"
+        type="color"
+        onFocus={() => setIsOpen(true)}
+        onBlur={() => setIsOpen(false)}
+        value={props.value}
+        onChange={handleSelectColor}
+      />
     </div>
   );
 }

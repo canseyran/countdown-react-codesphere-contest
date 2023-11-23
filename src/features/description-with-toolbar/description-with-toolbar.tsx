@@ -9,25 +9,27 @@ import useClickedOutside from 'src/hooks/useClickedOutside';
 import { HexColor } from 'src/types/hex-color.type';
 import CustomizableTextField from 'src/components/customizable-text-field/customizable-text-field';
 
-type HeadingWithToolbarProps = {
+type DescriptionWithToolbarProps = {
   className?: string;
 };
 
-export default function HeadingWithToolbar(props: HeadingWithToolbarProps) {
+export default function DescriptionWithToolbar(
+  props: DescriptionWithToolbarProps,
+) {
   const headingWithToolbarRef = useRef<HTMLDivElement>(null);
   const { clickedOutside } = useClickedOutside(headingWithToolbarRef);
   const [editMode, setEditMode] = useState(false);
   const {
-    headingText,
-    headingFontSize,
-    headingFontFamily,
-    headingFontColor,
-    headingAlignment,
-    setHeadingText,
-    setHeadingFontSize,
-    setHeadingFontFamily,
-    setHeadingFontColor,
-    setHeadingAlignment,
+    descriptionText,
+    descriptionFontSize,
+    descriptionFontFamily,
+    descriptionFontColor,
+    descriptionAlignment,
+    setDescriptionText,
+    setDescriptionFontSize,
+    setDescriptionFontFamily,
+    setDescriptionFontColor,
+    setDescriptionAlignment,
   } = useCustomCountdownSettings();
 
   useEffect(() => {
@@ -40,12 +42,12 @@ export default function HeadingWithToolbar(props: HeadingWithToolbarProps) {
     setEditMode(true);
   }
 
-  function handleStopEditMode(headingText: string): void {
-    setHeadingText(headingText);
+  function handleStopEditMode(descriptionText: string): void {
+    setDescriptionText(descriptionText);
   }
 
   function handleSetColor(color: HexColor): void {
-    setHeadingFontColor(color);
+    setDescriptionFontColor(color);
   }
 
   return (
@@ -57,41 +59,41 @@ export default function HeadingWithToolbar(props: HeadingWithToolbarProps) {
     >
       {editMode ? (
         <div className="absolute top-0 left-[50%] bg-orange-400 rounded-xl px-4 text-white font-bold -translate-y-[50%] -translate-x-[50%]">
-          HEADING
+          DESCRIPTION
         </div>
       ) : (
         ''
       )}
       <CustomizableTextField
-        fontFamily={headingFontFamily}
-        alignment={headingAlignment}
-        fontSize={headingFontSize}
-        fontColor={headingFontColor}
+        fontFamily={descriptionFontFamily}
+        alignment={descriptionAlignment}
+        fontSize={descriptionFontSize}
+        fontColor={descriptionFontColor}
         onStopEditMode={handleStopEditMode}
         onStartEditMode={handleStartEditMode}
-        text={headingText}
+        text={descriptionText}
         allowEdit
       />
       {editMode ? (
         <Toolbar className="absolute bottom-0 left-[50%] translate-y-full -translate-x-[50%] w-[90vw] z-50">
           <ToolFontFamilyPicker
-            value={headingFontFamily}
-            onChange={setHeadingFontFamily}
+            value={descriptionFontFamily}
+            onChange={setDescriptionFontFamily}
           />
           <ToolColorPicker
             onChange={handleSetColor}
-            value={headingFontColor}
+            value={descriptionFontColor}
           ></ToolColorPicker>
           <ToolAlignmentPicker
-            onChange={setHeadingAlignment}
-            value={headingAlignment}
+            onChange={setDescriptionAlignment}
+            value={descriptionAlignment}
           />
           <ToolSizePicker
-            onChange={setHeadingFontSize}
+            onChange={setDescriptionFontSize}
             minValue={16}
             maxValue={128}
             steps={4}
-            value={headingFontSize}
+            value={descriptionFontSize}
           />
         </Toolbar>
       ) : (

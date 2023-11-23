@@ -2,7 +2,7 @@ import { createRef } from 'react';
 import { FontFamiliesEnum } from '../../types/font-families.enum';
 import { AlignmentEnum } from 'src/types/alignment.enum';
 
-type HeadingProps = {
+type CustomizableTextField = {
   text?: string;
   alignment?: AlignmentEnum;
   fontColor?: string;
@@ -14,7 +14,7 @@ type HeadingProps = {
   onStopEditMode?: (text: string) => void;
 };
 
-export default function Heading({
+export default function CustomizableTextField({
   text = 'Your custom title',
   alignment = AlignmentEnum.CENTER,
   fontColor = '#000000',
@@ -24,7 +24,7 @@ export default function Heading({
   onStartEditMode,
   onTextChange,
   onStopEditMode,
-}: HeadingProps) {
+}: CustomizableTextField) {
   const textRef = createRef<HTMLHeadingElement>();
 
   function handleStartEditMode(): void {

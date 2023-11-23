@@ -33,27 +33,35 @@ export default function Dropdown(props: DropdownProps) {
   return (
     <div
       ref={dropdownRef}
-      className={`relative rounded inline-block pl-3 pr-2 ${props.className}`}
+      className={`flex items-center h-8 border border-slate-600 box-border relative bg-slate-900 rounded ${props.className}`}
     >
       <button
-        className="flex items-center justify-between text-left text-white w-full"
+        className="flex items-center justify-between text-left h-full text-white w-full"
         style={{ fontFamily: props.selectedOption.fontFamily ?? '' }}
         onClick={handleButtonClick}
       >
-        {props.selectedOption.label}
-        <CaretDownIcon
-          className={`w-8 h-8 ${isOpen && 'rotate-180'}`}
-          fill="white"
-        />
+        <span className="truncate pl-2">{props.selectedOption.label}</span>
+        <button
+          className={` w-7 h-7 grid place-items-center rounded ${
+            isOpen
+              ? 'bg-slate-700 hover:bg-slate-800'
+              : 'bg-slate-800 hover:bg-slate-700'
+          }`}
+        >
+          <CaretDownIcon
+            className={`w-5 h-5 ${isOpen && 'rotate-180'}`}
+            fill="white"
+          />
+        </button>
       </button>
       <ul
-        className={`z-50 absolute left-0 bottom-0 translate-y-full w-full bg-offBlack text-white rounded max-h-[8rem] overflow-y-scroll ${
-          !isOpen && 'hidden'
+        className={`z-50 absolute left-0 border border-slate-600 bottom-0 translate-y-[105%] w-full bg-offBlack text-white rounded max-h-[8rem] overflow-y-scroll ${
+          !isOpen ? 'hidden' : ''
         }`}
       >
         {props.options.map(option => (
           <li
-            className="pl-3 py-2 cursor-pointer hover:bg-darkGrey"
+            className="pl-2 py-2 cursor-pointer hover:bg-slate-900 truncate"
             style={{ fontFamily: option.fontFamily ?? '' }}
             key={option.value}
             onClick={() => handleOptionClick(option)}
