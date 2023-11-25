@@ -1,7 +1,8 @@
 import { AlignmentEnum } from './types/alignment.enum';
+import { BackgroundImages } from './types/background-images';
 import { FontFamiliesEnum } from './types/font-families.enum';
 
-export const config = {
+export const cfg = {
   countdown: {
     heading: {
       text: {
@@ -53,5 +54,11 @@ export const config = {
         SEARCH_PARAM: 'description-alignment',
       },
     },
+    backgroundImage: {
+      DEFAULT: BackgroundImages[0],
+      SEARCH_PARAM: 'background-image',
+    },
   },
 };
+
+export const config = Object.freeze(cfg);
