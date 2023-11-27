@@ -1,5 +1,6 @@
 import { AlignmentEnum } from './types/alignment.enum';
 import { BackgroundImages } from './types/background-images';
+import { CountdownVariants } from './types/countdown-variants.enum';
 import { FontFamiliesEnum } from './types/font-families.enum';
 
 export const cfg = {
@@ -57,6 +58,20 @@ export const cfg = {
     backgroundImage: {
       DEFAULT: BackgroundImages[0],
       SEARCH_PARAM: 'background-image',
+    },
+    countdown: {
+      date: {
+        DEFAULT: new Date(2024, 6).getTime(),
+        SEARCH_PARAM: 'target-date',
+      },
+      size: {
+        DEFAULT: 96,
+        SEARCH_PARAM: 'countdown-size',
+      },
+      variant: {
+        DEFAULT: CountdownVariants.SIMPLE_ANIMATED,
+        SEARCH_PARAM: 'countdown-variant',
+      },
     },
   },
 };

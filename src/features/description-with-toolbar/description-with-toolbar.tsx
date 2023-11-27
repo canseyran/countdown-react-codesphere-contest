@@ -4,10 +4,10 @@ import ToolColorPicker from 'src/components/toolbar/tools/color-picker/color-pic
 import ToolFontFamilyPicker from 'src/components/toolbar/tools/font-family-picker/font-family-picker';
 import ToolAlignmentPicker from 'src/components/toolbar/tools/alignment-picker/alignment-picker';
 import ToolSizePicker from 'src/components/toolbar/tools/size-picker/size-picker';
-import useCustomCountdownSettings from 'src/hooks/useCustomCountdownSettings';
 import useClickedOutside from 'src/hooks/useClickedOutside';
 import { HexColor } from 'src/types/hex-color.type';
 import CustomizableTextField from 'src/components/customizable-text-field/customizable-text-field';
+import useDescriptionParams from 'src/hooks/useDescriptionParams';
 
 type DescriptionWithToolbarProps = {
   className?: string;
@@ -30,7 +30,7 @@ export default function DescriptionWithToolbar(
     setDescriptionFontFamily,
     setDescriptionFontColor,
     setDescriptionAlignment,
-  } = useCustomCountdownSettings();
+  } = useDescriptionParams();
 
   useEffect(() => {
     if (clickedOutside) {

@@ -3,12 +3,12 @@ import Background from 'src/components/background/background';
 import CloseIcon from 'src/components/icons/close';
 import Toolbar from 'src/components/toolbar/toolbar';
 import ToolImagePicker from 'src/components/toolbar/tools/image-picker/image-picker';
-import useCustomCountdownSettings from 'src/hooks/useCustomCountdownSettings';
+import useBackgroundParams from 'src/hooks/useBackgroundParams';
 import { BackgroundImages } from 'src/types/background-images';
 
 export default function BackgroundWithToolbar() {
   const { setBackgroundImage, backgroundImage } =
-    useCustomCountdownSettings();
+    useBackgroundParams();
   const [isOpen, setIsOpen] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 

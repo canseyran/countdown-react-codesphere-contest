@@ -8,12 +8,15 @@ import useCustomCountdownSettings from 'src/hooks/useCustomCountdownSettings';
 import useClickedOutside from 'src/hooks/useClickedOutside';
 import { HexColor } from 'src/types/hex-color.type';
 import CustomizableTextField from 'src/components/customizable-text-field/customizable-text-field';
+import useHeadingParams from 'src/hooks/useHeadingParams';
 
 type HeadingWithToolbarProps = {
   className?: string;
 };
 
-export default function HeadingWithToolbar(props: HeadingWithToolbarProps) {
+export default function HeadingWithToolbar(
+  props: HeadingWithToolbarProps,
+) {
   const headingWithToolbarRef = useRef<HTMLDivElement>(null);
   const { clickedOutside } = useClickedOutside(headingWithToolbarRef);
   const [editMode, setEditMode] = useState(false);
@@ -28,7 +31,7 @@ export default function HeadingWithToolbar(props: HeadingWithToolbarProps) {
     setHeadingFontFamily,
     setHeadingFontColor,
     setHeadingAlignment,
-  } = useCustomCountdownSettings();
+  } = useHeadingParams();
 
   useEffect(() => {
     if (clickedOutside) {
