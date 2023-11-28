@@ -39,7 +39,13 @@
 }
 
 @font-face {
-  font-family: 'Vintageking';
-  src: local('Vintageking'), url('./assets/fonts/Vintageking.ttf'),
+  font-family: 'VintageKing';
+  src: local('VintageKing'), url('./assets/fonts/VintageKing.ttf'),
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'Vogue';
+  src: local('Vogue'), url('./assets/fonts/Vogue.ttf'),
     format('truetype');
 }
