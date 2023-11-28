@@ -5,6 +5,10 @@ import { FontFamiliesEnum } from './types/font-families.enum';
 
 export const cfg = {
   countdown: {
+    editMode: {
+      DEFAULT: true,
+      SEARCH_PARAM: 'edit',
+    },
     heading: {
       text: {
         DEFAULTS: ['Click here to change your heading'],
@@ -61,7 +65,7 @@ export const cfg = {
     },
     countdown: {
       date: {
-        DEFAULT: new Date(2024, 6).getTime(),
+        DEFAULT: new Date(2024, 0).getTime(),
         SEARCH_PARAM: 'target-date',
       },
       size: {

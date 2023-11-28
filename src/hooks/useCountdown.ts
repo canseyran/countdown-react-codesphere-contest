@@ -51,46 +51,20 @@ function transformCountdown(countdown: number): CountdownData {
   );
   const seconds = Math.floor((countdown % (1000 * 60)) / 1000);
 
-  const nextDays = days - 1;
-  const nextHours = hours - 1 < 0 ? 59 : hours - 1;
-  const nextMinutes = minutes - 1 < 0 ? 59 : minutes - 1;
-  const nextSeconds = seconds - 1 < 0 ? 59 : seconds - 1;
-
   const isExpired = days + hours + minutes + seconds <= 0;
 
   const daysPadding = days >= 100 ? 0 : 2;
-  const previousDaysPadding = days >= 100 ? 0 : 2;
 
   const daysString = String(days).padStart(daysPadding, '0');
   const hoursString = String(hours).padStart(2, '0');
   const minutesString = String(minutes).padStart(2, '0');
   const secondsString = String(seconds).padStart(2, '0');
 
-  const nextDaysString = String(nextDays).padStart(
-    previousDaysPadding,
-    '0',
-  );
-  const nextHoursString = String(nextHours).padStart(2, '0');
-  const nextMinutesString = String(nextMinutes).padStart(2, '0');
-  const nextSecondsString = String(nextSeconds).padStart(2, '0');
-
   return {
     isExpired,
-    days: {
-      current: daysString,
-      next: nextDaysString,
-    },
-    hours: {
-      current: hoursString,
-      next: nextHoursString,
-    },
-    minutes: {
-      current: minutesString,
-      next: nextMinutesString,
-    },
-    seconds: {
-      current: secondsString,
-      next: nextSecondsString,
-    },
+    days: daysString,
+    hours: hoursString,
+    minutes: minutesString,
+    seconds: secondsString,
   };
 }

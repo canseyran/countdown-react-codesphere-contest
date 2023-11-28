@@ -82,7 +82,7 @@ export default function ToolSizePicker(props: ToolSizePickerProps) {
 
   return (
     <div
-      className="relative flex justify-between items-center bg-slate-900 border border-slate-600 rounded h-8 w-16"
+      className="relative flex justify-between items-center bg-slate-900 border border-slate-600 rounded h-8 w-20"
       ref={sizePickerRef}
     >
       <div className="pl-2">
@@ -96,7 +96,7 @@ export default function ToolSizePicker(props: ToolSizePickerProps) {
         </form>
       </div>
       <div
-        className={`w-7 h-7 grid place-items-center rounded ${
+        className={`w-7 h-7 aspect-square grid place-items-center rounded ${
           isOpen
             ? 'bg-slate-700 hover:bg-slate-800'
             : 'bg-slate-800 hover:bg-slate-700'

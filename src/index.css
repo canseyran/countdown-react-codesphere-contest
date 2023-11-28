@@ -10,7 +10,26 @@
 
 @font-face {
   font-family: 'Saturday';
-  src: local('Saturday'), url('./assets/fonts/Saturday.ttf'), format('truetype');
+  src: local('Saturday'), url('./assets/fonts/Saturday.ttf'),
+    format('truetype');
+}
+
+@media screen and (min-width: 1000px) {
+  .container {
+    font-size: 1em;
+  }
+}
+
+@media screen and (min-width: 762px) {
+  .container {
+    font-size: 0.75em;
+  }
+}
+
+@media screen and (max-width: 762px) {
+  .container {
+    font-size: 0.5em;
+  }
 }
 * {
   scrollbar-width: thin;

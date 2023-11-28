@@ -6,7 +6,13 @@ import ToolImagePicker from 'src/components/toolbar/tools/image-picker/image-pic
 import useBackgroundParams from 'src/hooks/useBackgroundParams';
 import { BackgroundImages } from 'src/types/background-images';
 
-export default function BackgroundWithToolbar() {
+type BackgroundWithToolbarProps = {
+  isEditMode: boolean;
+};
+
+export default function BackgroundWithToolbar(
+  props: BackgroundWithToolbarProps,
+) {
   const { setBackgroundImage, backgroundImage } =
     useBackgroundParams();
   const [isOpen, setIsOpen] = useState(false);
@@ -16,14 +22,12 @@ export default function BackgroundWithToolbar() {
     event.preventDefault();
     const { clientX, clientY } = event;
     setPosition({ x: clientX - 50, y: clientY - 50 });
-    if (!isOpen) {
-      setIsOpen(true);
-    }
+    setIsOpen(o => !o);
   }
 
   return (
     <>
-      {isOpen && (
+      {isOpen && props.isEditMode ? (
         <div
           style={{
             position: 'absolute',
@@ -44,6 +48,8 @@ export default function BackgroundWithToolbar() {
             </div>
           </Toolbar>
         </div>
+      ) : (
+        ''
       )}
       <Background
         src={backgroundImage.path}

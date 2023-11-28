@@ -4,7 +4,6 @@ import ToolColorPicker from 'src/components/toolbar/tools/color-picker/color-pic
 import ToolFontFamilyPicker from 'src/components/toolbar/tools/font-family-picker/font-family-picker';
 import ToolAlignmentPicker from 'src/components/toolbar/tools/alignment-picker/alignment-picker';
 import ToolSizePicker from 'src/components/toolbar/tools/size-picker/size-picker';
-import useCustomCountdownSettings from 'src/hooks/useCustomCountdownSettings';
 import useClickedOutside from 'src/hooks/useClickedOutside';
 import { HexColor } from 'src/types/hex-color.type';
 import CustomizableTextField from 'src/components/customizable-text-field/customizable-text-field';
@@ -12,6 +11,7 @@ import useHeadingParams from 'src/hooks/useHeadingParams';
 
 type HeadingWithToolbarProps = {
   className?: string;
+  isEditMode: boolean;
 };
 
 export default function HeadingWithToolbar(
@@ -74,7 +74,7 @@ export default function HeadingWithToolbar(
           onStopEditMode={handleStopEditMode}
           onStartEditMode={handleStartEditMode}
           text={headingText}
-          allowEdit
+          allowEdit={props.isEditMode}
         />
         {editMode ? (
           <Toolbar className="absolute bottom-0 left-[50%] translate-y-full -translate-x-[50%] w-[90vw] z-50">

@@ -43,22 +43,27 @@ export default function CustomizableTextField({
   }
 
   return (
-    <h1
-      ref={textRef}
-      contentEditable={allowEdit}
-      onFocus={handleStartEditMode}
-      onInput={handleTextChange}
-      onBlur={handleStopEditMode}
+    <div
       style={{
-        color: fontColor,
         fontSize: fontSize + 'px',
-        fontFamily: fontFamily,
-        textAlign: alignment,
       }}
-      className={`outline-none`}
-      suppressContentEditableWarning
     >
-      {text}
-    </h1>
+      <h1
+        ref={textRef}
+        contentEditable={allowEdit}
+        onFocus={handleStartEditMode}
+        onInput={handleTextChange}
+        onBlur={handleStopEditMode}
+        style={{
+          color: fontColor,
+          fontFamily: fontFamily,
+          textAlign: alignment,
+        }}
+        className={`outline-none text-[0.5em] md:text-[0.75em] xl:text-[1em]`}
+        suppressContentEditableWarning
+      >
+        {text}
+      </h1>
+    </div>
   );
 }

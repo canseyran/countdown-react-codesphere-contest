@@ -10,6 +10,7 @@ import { CountdownVariants } from 'src/types/countdown-variants.enum';
 
 type CountdownWithToolbarProps = {
   className?: string;
+  isEditMode: boolean;
 };
 
 export default function CountdownWithToolbar(
@@ -39,11 +40,13 @@ export default function CountdownWithToolbar(
   return (
     <div className={props.className} ref={countdownRef}>
       <div
-        className={`relative border-2 rounded-xl w-[90vw] max-w-[60rem] py-5 grid place-items-center ${
-          isOpen ? ' border-orange-400' : 'border-transparent'
+        className={`relative border-2 rounded-xl min-w-[90vw] max-w-[60rem] py-5 grid place-items-center ${
+          isOpen && props.isEditMode
+            ? ' border-orange-400'
+            : 'border-transparent'
         }`}
       >
-        {isOpen && (
+        {isOpen && props.isEditMode ? (
           <>
             <div className="absolute top-0 left-[50%] bg-orange-400 rounded-xl px-4 text-white font-bold -translate-y-[50%] -translate-x-[50%]">
               COUNTDOWN
@@ -54,7 +57,7 @@ export default function CountdownWithToolbar(
                 <ToolSizePicker
                   value={countdownSize}
                   minValue={32}
-                  maxValue={176}
+                  maxValue={96}
                   steps={8}
                   onChange={handleChangeSize}
                 />
@@ -66,6 +69,8 @@ export default function CountdownWithToolbar(
               </Toolbar>
             </div>
           </>
+        ) : (
+          ''
         )}
         <Countdown
           variant={CountdownVariants.SIMPLE_ANIMATED}

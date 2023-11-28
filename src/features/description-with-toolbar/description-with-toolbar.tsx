@@ -11,6 +11,7 @@ import useDescriptionParams from 'src/hooks/useDescriptionParams';
 
 type DescriptionWithToolbarProps = {
   className?: string;
+  isEditMode: boolean;
 };
 
 export default function DescriptionWithToolbar(
@@ -73,7 +74,7 @@ export default function DescriptionWithToolbar(
           onStopEditMode={handleStopEditMode}
           onStartEditMode={handleStartEditMode}
           text={descriptionText}
-          allowEdit
+          allowEdit={props.isEditMode}
         />
         {editMode ? (
           <Toolbar className="absolute bottom-0 left-[50%] translate-y-full -translate-x-[50%] w-[90vw] z-50">

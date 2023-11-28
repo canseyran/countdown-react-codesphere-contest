@@ -8,7 +8,7 @@ type BackgroundProps = {
 export default function Background(props: BackgroundProps) {
   return (
     <img
-      className="absolute w-full h-full -z-50 object-cover"
+      className="fixed w-full h-full -z-50 object-cover"
       onClick={props.onClick}
       src={props.src}
     ></img>
