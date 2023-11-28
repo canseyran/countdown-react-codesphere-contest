@@ -82,7 +82,7 @@ export default function CountdownWithToolbar(
           <CountdownExpired onClick={() => setIsOpen(true)} />
         ) : (
           <Countdown
-            variant={CountdownVariants.SIMPLE_ANIMATED}
+            variant={variant}
             countdownData={countdownData}
             size={countdownSize}
             onClick={() => setIsOpen(true)}
