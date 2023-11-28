@@ -4,6 +4,8 @@ I thoroughly enjoyed working on this project! It served as an engaging opportuni
 
 ## Usage
 
+![](https://github.com/canseyran/countdown-react-codesphere-contest/tree/master/docs/showcase.gif)
+
 1. Go to https://47973-3000.2.codesphere.com/
 2. Click at the elements you want to customize
 3. Click on the background to change the background image (Some clicks might only pick up at the lower half of the screen)
@@ -54,6 +56,7 @@ Analyze the user-friendliness of the component and the level of interactivity it
 - **Countdown color picker**
 - **Use static colors as background**
 - **Mix font sizes, colors, etc. within a text object**
+- **Add debouncing for states**
 - **Many more...**
 
 ## Development Server

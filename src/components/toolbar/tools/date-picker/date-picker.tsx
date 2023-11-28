@@ -12,19 +12,23 @@ export default function ToolDatePicker(props: ToolDatePickerProps) {
 
   const handleDateChanged = (e: ChangeEvent<HTMLInputElement>) => {
     const newDate = e.target.value;
+    if (newDate.length !== 10) {
+      return;
+    }
     const dateTime = new Date(
       `${newDate}T${formattedTime}`,
     ).getTime();
-    console.log(dateTime);
     props.onDateTimeChange(dateTime);
   };
 
   const handleTimeChanged = (e: ChangeEvent<HTMLInputElement>) => {
     const newTime = e.target.value;
+    if (newTime.length !== 5) {
+      return;
+    }
     const dateTime = new Date(
       `${formattedDate}T${newTime}`,
     ).getTime();
-    console.log(dateTime);
     props.onDateTimeChange(dateTime);
   };
 
