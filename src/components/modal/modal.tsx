@@ -8,7 +8,7 @@ type ModalProps = {
 export default function Modal(props: ModalProps) {
   return (
     <div
-      className="fixed top-0 left-0 w-[100vw] h-[100vh] overflow-hidden grid place-items-center bg-black bg-opacity-60"
+      className="fixed top-0 left-0 w-[100vw] h-[100vh] overflow-hidden grid place-items-center bg-black bg-opacity-60 z-50"
       onClick={props.close}
     >
       <button
