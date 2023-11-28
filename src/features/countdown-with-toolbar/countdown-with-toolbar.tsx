@@ -8,7 +8,6 @@ import ToolSizePicker from 'src/components/toolbar/tools/size-picker/size-picker
 import useClickedOutside from 'src/hooks/useClickedOutside';
 import useCountdown from 'src/hooks/useCountdown';
 import useCountdownParams from 'src/hooks/useCountdownParams';
-import { CountdownVariants } from 'src/types/countdown-variants.enum';
 
 type CountdownWithToolbarProps = {
   className?: string;

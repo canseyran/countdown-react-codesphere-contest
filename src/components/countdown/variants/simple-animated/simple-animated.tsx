@@ -18,7 +18,7 @@ export default function CountdownSimpleAnimated(
     <div className={classes.container}>
       <div className={classes.group}>
         <div className={classes.digitsGroup}>
-          {daysCharCount.map((v, idx) => {
+          {daysCharCount.map((_v, idx) => {
             return (
               <Digit
                 key={idx}
