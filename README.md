@@ -4,7 +4,7 @@ I thoroughly enjoyed working on this project! It served as an engaging opportuni
 
 ## Usage
 
-![](https://github.com/canseyran/countdown-react-codesphere-contest/tree/master/docs/showcase.gif)
+![](https://github.com/canseyran/countdown-react-codesphere-contest/blob/master/docs/showcase.gif)
 
 1. Go to https://47973-3000.2.codesphere.com/
 2. Click at the elements you want to customize
