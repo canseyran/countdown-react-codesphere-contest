@@ -9,10 +9,10 @@ export default function App() {
   const { isEditMode } = useEditModeParams();
   return (
     <div className="flex flex-col items-center">
-      <HeadingWithToolbar className="pt-5" isEditMode={isEditMode} />
+      <HeadingWithToolbar className="pt-7" isEditMode={isEditMode} />
       <CountdownWithToolbar isEditMode={isEditMode} />
       <DescriptionWithToolbar
-        className="pt-5"
+        className="pt-7"
         isEditMode={isEditMode}
       />
       <BackgroundWithToolbar isEditMode={isEditMode} />

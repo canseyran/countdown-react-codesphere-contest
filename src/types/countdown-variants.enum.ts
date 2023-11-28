@@ -1,3 +1,3 @@
 export enum CountdownVariants {
-  SIMPLE_ANIMATED = 'Slidedown [animated]',
+  SIMPLE_ANIMATED = 'Slidedown',
 }
