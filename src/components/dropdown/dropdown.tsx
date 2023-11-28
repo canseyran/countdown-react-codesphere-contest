@@ -40,8 +40,10 @@ export default function Dropdown(props: DropdownProps) {
         style={{ fontFamily: props.selectedOption.fontFamily ?? '' }}
         onClick={handleButtonClick}
       >
-        <span className="truncate pl-2">{props.selectedOption.label}</span>
-        <button
+        <span className="truncate pl-2">
+          {props.selectedOption.label}
+        </span>
+        <div
           className={` w-7 h-7 grid place-items-center rounded ${
             isOpen
               ? 'bg-slate-700 hover:bg-slate-800'
@@ -52,7 +54,7 @@ export default function Dropdown(props: DropdownProps) {
             className={`w-5 h-5 ${isOpen && 'rotate-180'}`}
             fill="white"
           />
-        </button>
+        </div>
       </button>
       <ul
         className={`z-50 absolute left-0 border border-slate-600 bottom-0 translate-y-[105%] w-full bg-offBlack text-white rounded max-h-[8rem] overflow-y-scroll ${
