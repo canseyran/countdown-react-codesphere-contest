@@ -59,7 +59,7 @@ export default function CustomizableTextField({
           fontFamily: fontFamily,
           textAlign: alignment,
         }}
-        className={`outline-none text-[0.5em] md:text-[0.75em] xl:text-[1em]`}
+        className={`outline-none text-[0.85em] xl:text-[1em]`}
         suppressContentEditableWarning
       >
         {text}

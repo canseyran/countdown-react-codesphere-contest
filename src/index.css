@@ -14,23 +14,36 @@
     format('truetype');
 }
 
-@media screen and (min-width: 1000px) {
-  .container {
-    font-size: 1em;
-  }
+@font-face {
+  font-family: 'DragonSlayer';
+  src: local('DragonSlayer'), url('./assets/fonts/DragonSlayer.ttf'),
+    format('truetype');
 }
 
-@media screen and (min-width: 762px) {
-  .container {
-    font-size: 0.75em;
-  }
+@font-face {
+  font-family: 'Heavitas';
+  src: local('Heavitas'), url('./assets/fonts/Heavitas.ttf'),
+    format('truetype');
 }
 
-@media screen and (max-width: 762px) {
-  .container {
-    font-size: 0.5em;
-  }
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), url('./assets/fonts/Roboto.ttf'),
+    format('truetype');
 }
+
+@font-face {
+  font-family: 'Typewriter';
+  src: local('Typewriter'), url('./assets/fonts/Typewriter.ttf'),
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'Vintageking';
+  src: local('Vintageking'), url('./assets/fonts/Vintageking.ttf'),
+    format('truetype');
+}
+
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--secondary) var(--primary);

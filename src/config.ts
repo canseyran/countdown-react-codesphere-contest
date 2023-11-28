@@ -11,13 +11,13 @@ export const cfg = {
     },
     heading: {
       text: {
-        DEFAULTS: ['Click here to change your heading'],
+        DEFAULTS: ['Merry Christmas'],
         SEARCH_PARAM: 'heading-text',
         MAX_LENGTH: 45,
       },
       font: {
         family: {
-          DEFAULT: FontFamiliesEnum.KG_CHASING_CARS,
+          DEFAULT: FontFamiliesEnum.VINTAGE_KING,
           SEARCH_PARAM: 'heading-font-family',
         },
         size: {
@@ -36,13 +36,15 @@ export const cfg = {
     },
     description: {
       text: {
-        DEFAULTS: ['Click here to change your description'],
+        DEFAULTS: [
+          "Join us in the festive countdown to Christmas! Each day brings us closer to joy, traditions, and the spirit of giving. Anticipate the magic with daily delights, spreading cheer and warmth. Let's make this Christmas unforgettable together! 🌟🎁 #MerryChristmas #CountdownToChristmas",
+        ],
         SEARCH_PARAM: 'description-text',
-        MAX_LENGTH: 254,
+        MAX_LENGTH: 450,
       },
       font: {
         family: {
-          DEFAULT: FontFamiliesEnum.KG_CHASING_CARS,
+          DEFAULT: FontFamiliesEnum.TYPEWRITER,
           SEARCH_PARAM: 'description-font-family',
         },
         size: {
@@ -65,7 +67,7 @@ export const cfg = {
     },
     countdown: {
       date: {
-        DEFAULT: new Date(2024, 0).getTime(),
+        DEFAULT: new Date(2023, 11, 25).getTime(),
         SEARCH_PARAM: 'target-date',
       },
       size: {
