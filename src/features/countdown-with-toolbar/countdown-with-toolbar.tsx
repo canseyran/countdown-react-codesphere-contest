@@ -62,7 +62,7 @@ export default function CountdownWithToolbar(
                 <ToolSizePicker
                   value={countdownSize}
                   minValue={32}
-                  maxValue={116}
+                  maxValue={164}
                   steps={8}
                   onChange={handleChangeSize}
                 />
