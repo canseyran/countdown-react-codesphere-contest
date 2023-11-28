@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 import CaretDownIcon from 'src/components/icons/caret-down';
 import { HexColor } from 'src/types/hex-color.type';
+import classes from './color-picker.module.css';
 
 type ToolColorPickerProps = {
   value?: HexColor;
@@ -34,7 +35,7 @@ export default function ToolColorPicker(props: ToolColorPickerProps) {
         />
       </div>
       <input
-        className="opacity-0 absolute top-0 left-0 h-full w-full"
+        className={`opacity-0 absolute top-0 left-0 h-full w-full ${classes.colorPicker}`}
         type="color"
         onFocus={() => setIsOpen(true)}
         onBlur={() => setIsOpen(false)}

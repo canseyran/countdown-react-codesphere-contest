@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import Countdown from 'src/components/countdown/countdown';
+import CountdownExpired from 'src/components/countdown/expired/expired';
 import Toolbar from 'src/components/toolbar/toolbar';
 import ToolCountdownVariantPicker from 'src/components/toolbar/tools/countdown-variant-picker/countdown-variant-picker';
+import ToolDatePicker from 'src/components/toolbar/tools/date-picker/date-picker';
 import ToolSizePicker from 'src/components/toolbar/tools/size-picker/size-picker';
 import useClickedOutside from 'src/hooks/useClickedOutside';
 import useCountdown from 'src/hooks/useCountdown';
@@ -53,6 +55,10 @@ export default function CountdownWithToolbar(
             </div>
             <div className="absolute bottom-0 left-[50%] translate-y-[110%] -translate-x-[50%] w-[90vw] z-50">
               <Toolbar>
+                <ToolDatePicker
+                  dateTime={targetDate}
+                  onDateTimeChange={setTargetDate}
+                />
                 <span className="text-white pl-1 -mr-1">Size:</span>
                 <ToolSizePicker
                   value={countdownSize}
@@ -72,12 +78,16 @@ export default function CountdownWithToolbar(
         ) : (
           ''
         )}
-        <Countdown
-          variant={CountdownVariants.SIMPLE_ANIMATED}
-          countdownData={countdownData}
-          size={countdownSize}
-          onClick={() => setIsOpen(true)}
-        />
+        {countdownData.isExpired ? (
+          <CountdownExpired onClick={() => setIsOpen(true)} />
+        ) : (
+          <Countdown
+            variant={CountdownVariants.SIMPLE_ANIMATED}
+            countdownData={countdownData}
+            size={countdownSize}
+            onClick={() => setIsOpen(true)}
+          />
+        )}
       </div>
     </div>
   );

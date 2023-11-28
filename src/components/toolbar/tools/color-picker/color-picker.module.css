@@ -1,0 +1,19 @@
+.colorPicker  {
+  color-scheme: dark;
+}
+.colorPicker::-webkit-color-swatch-wrapper {
+  padding: 0; /* Remove default padding */
+  border: none; /* Remove default border */
+}
+
+.colorPicker::-webkit-color-swatch {
+  border: none; /* Remove default border */
+  border-radius: 0; /* Remove default border-radius */
+}
+
+/* Dark mode styles */
+.colorPicker::-webkit-color-swatch-wrapper,
+.colorPicker::-webkit-color-swatch {
+  background-color: #333; /* Dark background color */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.8); /* Dark box shadow */
+}

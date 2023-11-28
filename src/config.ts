@@ -25,7 +25,7 @@ export const cfg = {
           SEARCH_PARAM: 'heading-font-size',
         },
         color: {
-          DEFAULT: '#000000',
+          DEFAULT: '#FFFFFF',
           SEARCH_PARAM: 'heading-font-color',
         },
       },
@@ -50,7 +50,7 @@ export const cfg = {
           SEARCH_PARAM: 'description-font-size',
         },
         color: {
-          DEFAULT: '#000000',
+          DEFAULT: '#FFFFFF',
           SEARCH_PARAM: 'description-font-color',
         },
       },

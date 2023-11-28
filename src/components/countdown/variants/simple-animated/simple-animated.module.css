@@ -1,13 +1,12 @@
-/* simple-animated.module.css */
 .container {
   display: flex;
   background: #141e2b;
   padding: 0.2em;
   border-radius: 0.1em;
-  gap: 0.2em;
+  gap: 0.4em;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 960px) {
   .container {
     font-size: 1em;
   }
@@ -15,13 +14,13 @@
 
 @media screen and (min-width: 762px) {
   .container {
-    font-size: 0.75em;
+    font-size: 0.65em;
   }
 }
 
 @media screen and (max-width: 762px) {
   .container {
-    font-size: 0.5em;
+    font-size: 0.4em;
   }
 }
 .group {
@@ -34,14 +33,13 @@
 .digitsGroup {
   display: flex;
   flex-direction: row;
-  gap: 0.09em;
+  gap: 0.15em;
 }
 
 .digit {
   position: relative;
   width: 1.1em;
   height: 1.3em;
-  background: lightblue;
   overflow: hidden;
   background: #141e2b;
   border: 0.005em solid #57626f;

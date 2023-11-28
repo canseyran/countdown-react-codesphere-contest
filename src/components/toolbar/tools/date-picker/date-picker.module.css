@@ -1,0 +1,27 @@
+.date {
+  background-color: #10172a;
+  border: 1px solid #475569;
+  border-radius: 4px;
+  color: white;
+  padding: 0 8px;
+  color-scheme: dark;
+  outline: none;
+}
+
+.date:focus {
+  outline: none;
+}
+
+.time {
+  background-color: #10172a;
+  border: 1px solid #475569;
+  border-radius: 4px;
+  color: white;
+  padding: 0 8px;
+  color-scheme: dark;
+  outline: none;
+}
+
+.time:focus {
+  outline: none;
+}

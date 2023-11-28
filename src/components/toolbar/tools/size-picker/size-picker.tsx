@@ -82,7 +82,7 @@ export default function ToolSizePicker(props: ToolSizePickerProps) {
 
   return (
     <div
-      className="relative flex justify-between items-center bg-slate-900 border border-slate-600 rounded h-8 w-20"
+      className="relative flex justify-between items-center bg-slate-900 border border-slate-600 rounded h-8 w-24"
       ref={sizePickerRef}
     >
       <div className="pl-2">
