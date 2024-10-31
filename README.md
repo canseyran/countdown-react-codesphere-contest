@@ -6,7 +6,7 @@ I thoroughly enjoyed working on this project! It served as an engaging opportuni
 
 ![](https://github.com/canseyran/countdown-react-codesphere-contest/blob/master/docs/showcase.gif)
 
-1. Go to https://47973-3000.2.codesphere.com/
+1. Go to https://countdown.canseyran.dev/
 2. Click at the elements you want to customize
 3. Click on the background to change the background image (Some clicks might only pick up at the lower half of the screen)
 4. Have fun sharing your countdown
