@@ -67,7 +67,7 @@ export const cfg = {
     },
     countdown: {
       date: {
-        DEFAULT: new Date(2023, 11, 25).getTime(),
+        DEFAULT: new Date(2024, 11, 25).getTime(),
         SEARCH_PARAM: 'target-date',
       },
       size: {

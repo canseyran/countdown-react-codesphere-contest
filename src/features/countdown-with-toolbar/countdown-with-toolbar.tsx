@@ -25,7 +25,7 @@ export default function CountdownWithToolbar(
     variant,
     setVariant,
   } = useCountdownParams();
-  const countdownData = useCountdown(targetDate);
+  const {isLoading, countdownData} = useCountdown(targetDate);
   const [isOpen, setIsOpen] = useState(false);
   const countdownRef = useRef<HTMLDivElement>(null);
   const { clickedOutside } = useClickedOutside(countdownRef);
@@ -77,7 +77,7 @@ export default function CountdownWithToolbar(
         ) : (
           ''
         )}
-        {countdownData.isExpired ? (
+        {!isLoading ? (countdownData.isExpired ? (
           <CountdownExpired onClick={() => setIsOpen(true)} />
         ) : (
           <Countdown
@@ -86,7 +86,7 @@ export default function CountdownWithToolbar(
             size={countdownSize}
             onClick={() => setIsOpen(true)}
           />
-        )}
+        )): null}
       </div>
     </div>
   );

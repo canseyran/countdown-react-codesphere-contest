@@ -5,9 +5,11 @@ import { TimeInfo } from 'src/types/responses/time-info.response';
 // Use seconds since 1970
 export default function useCountdown(targetTime: number) {
   const [countdown, setCountdown] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     (async function fetchServerTime() {
+      setIsLoading(true);
       let currentTime = 0;
       try {
         const res = await fetch(
@@ -25,6 +27,7 @@ export default function useCountdown(targetTime: number) {
       } finally {
         setCountdown(targetTime - currentTime);
       }
+      setIsLoading(false);
     })().catch(e => console.error(e));
   }, [targetTime]);
 
@@ -38,7 +41,10 @@ export default function useCountdown(targetTime: number) {
     };
   }, []);
 
-  return transformCountdown(countdown);
+  return {
+    isLoading: isLoading,
+    countdownData: transformCountdown(countdown),
+  };
 }
 
 function transformCountdown(countdown: number): CountdownData {
